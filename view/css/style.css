@@ -1,0 +1,47 @@
+body .right {
+  float: right;
+}
+body .left {
+  float: left;
+}
+div.search.box {
+  width: calc(100% - 75px);
+  margin: 50px 28px 20px;
+}
+main div.result.box {
+  margin: 25px;
+}
+main div.result.box ul {
+  list-style: none;
+}
+main div.result.box ul li {
+  margin-bottom: .2rem;
+}
+main div.result.box ul li img {
+  width: 2.8rem;
+  margin-right: 2rem;
+}
+input.form-control {
+  width: calc(100% - 75px);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+footer div.navigation {
+  width: 100%;
+  position: absolute;
+  bottom: 1rem;
+}
+footer div.navigation div.btn-success.prev {
+  margin-left: 2rem;
+}
+div.btn-success.next {
+  margin-right: 2rem;
+}
+div.btn-success.right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;  
+}
+div.btn-success.left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;  
+}

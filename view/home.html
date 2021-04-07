@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Search Agrigate</title>
+    <link rel="stylesheet" type="text/css" href=""/>
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <script src="/js/main.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      let page = 0
+      let inited = 0
+      let request = ''
+      $(document).ready(() => {
+        searchRun()
+        keyboard()
+      })
+    </script>
+  </head>
+  <body>
+    <header>
+      <hr/>
+      <center>
+        <div class="search box">
+          <input class="form-control left request" type="text" placeholder="Search" aria-label="Search"/>
+          <div class="look btn btn-success right">Look It</div>
+        </div>
+        <div style="clear: both"></div>
+      </center>
+    </header>
+    <main>
+      <div class="result box">
+        <ul></ul>
+      </div>
+    </main>
+    <footer>
+      <div class="navigation">
+        <div class="btn btn-success right next">Next >></div>
+        <div class="btn btn-success left prev"><< Prev</div>
+      </div>
+    </footer>
+  </body>
+</html>
