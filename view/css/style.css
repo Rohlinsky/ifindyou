@@ -45,3 +45,6 @@ div.btn-success.left {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;  
 }
+footer div.navigation span.page {
+  font-size: 2em;
+}

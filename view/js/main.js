@@ -39,7 +39,9 @@ function getIt(lookIt, page_number=0) {
         }
       },
       error: (XMLHttpRequest, textStatus, errorThrown) => { 
-          alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+          const err = (errorThrown) ? errorThrown : "Unknown error"
+          console.error("Status: " + textStatus)
+          console.error("Error: " + err)
       } 
   })
 }
@@ -64,10 +66,16 @@ function initNavigation() {
 }
 function nextPage() {
   page++
+  nav(page)
   getIt(request, page)
 }
 function prevPage() {
   if (page == 0) return
   page--
+  nav(page)
   getIt(request, page)
 }
+function nav(page) {
+  $('footer div.navigation span.page').text(page + 1)
+}
+
