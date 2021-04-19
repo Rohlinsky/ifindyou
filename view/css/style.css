@@ -8,19 +8,23 @@ div.search.box {
   width: calc(100% - 75px);
   margin: 50px 28px 20px;
 }
+main {
+  min-height: 48rem;
+}
 main div.result.box {
-  width: 60rem;
-  margin: 25px;
+  max-width: 60rem;
+  margin: 2.8rem 2rem 2rem 2rem;
 }
 main div.result.box ul {
+  padding-left: 8rem;
   list-style: none;
 }
 main div.result.box ul li {
-  margin-bottom: .2rem;
+  margin-bottom: 2rem;
 }
 main div.result.box ul li img {
-  width: 2.8rem;
-  margin-right: 2rem;
+  width: 4rem;
+  margin-right: 1rem;
 }
 main div.result.box ul li p.description {
   width: 32rem;
@@ -29,6 +33,10 @@ input.form-control {
   width: calc(100% - 75px);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+}
+footer {
+  height: 4rem;
+  position: relative;
 }
 footer div.navigation {
   width: 100%;
@@ -52,3 +60,10 @@ div.btn-success.left {
 footer div.navigation span.page {
   font-size: 2em;
 }
+
+@media screen and (max-width: 600px) {
+  main div.result.box {
+    width: 100%;
+  }
+}
+

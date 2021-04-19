@@ -74,9 +74,15 @@ class Google(protoTemplate):
       item = wrapper_item.div
       uri = item.div.a["href"] if item.div.a and item.div.a.has_attr('href') else ''
       title = item.a.h3.text if item.a.h3 else ''
-      # description = item.div.span.span.text if item.div.span.span is not None else ''
-      description = item.div.span.span.text if item.div.span and item.div.span.span else ''
-      # item = searchWrapper.select('cite').text
+      # print(wrapper_item)
+      # print('-----')
+      description_wrapper = wrapper_item.select('div.g > div > div > div:nth-child(2)')
+      if len(description_wrapper) > 0:
+        description_wrapper = description_wrapper[0]
+        description = description_wrapper.span.span.text if description_wrapper.span and description_wrapper.span.span else ''
+      else:
+        description = ''
+
       result = {
         'url': uri,
         'title': title,
