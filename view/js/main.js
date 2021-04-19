@@ -47,11 +47,15 @@ function getIt(lookIt, page_number=0) {
 }
 function updateContent(data) {
   $('main div.result.box ul').html('')
-  data.map(function (item) {
+  console.log(data)
+  data.map(({type, url, title, description}) => {
     $('main div.result.box ul').append(`
       <li>
-        <img src="${item.type.logo}"/>
-        <a href="${item.url}">${item.text}</a>
+        <img src="${type.logo}"/>
+        <a href="${url}">${title}</a>
+        ${
+          ((description) ? "<p class='description'>" + description + "</p>" : '')
+        }
       </li>
     `)
   })

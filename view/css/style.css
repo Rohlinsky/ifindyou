@@ -9,6 +9,7 @@ div.search.box {
   margin: 50px 28px 20px;
 }
 main div.result.box {
+  width: 60rem;
   margin: 25px;
 }
 main div.result.box ul {
@@ -20,6 +21,9 @@ main div.result.box ul li {
 main div.result.box ul li img {
   width: 2.8rem;
   margin-right: 2rem;
+}
+main div.result.box ul li p.description {
+  width: 32rem;
 }
 input.form-control {
   width: calc(100% - 75px);
