@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 from part.search.main.template.google import Google
+from part.search.main.template.bing import Bing
 from part.search.main.template.yandex import Yandex
 from part.search.main.template.yahoo import Yahoo
 from part.search.main.template.duckduckgo import Duckduckgo
@@ -23,19 +24,25 @@ def send_css(path):
 def look(it, page_number):
   result = []
   google = Google()
+  bing = Bing()
   yandex = Yandex()
   yahoo = Yahoo()
   # duckduckgo = Duckduckgo()
 
   google_result = google.look(it=it, page=page_number)
+  result.extend(google_result)
+
   yahoo_result = yahoo.look(it=it, page=page_number)
+  result.extend(yahoo_result)
+
+  bing_result = bing.look(it=it, page=page_number)
+  result.extend(bing_result)
+
   # duckduckgo.look(it=it, page=page_number)
   # result.update(duckduckgo.look(it=it, page=page_number))
   # finder = yandex.look(it=it, page=page_number)
   # print(finder)
 
-  result.extend(google_result)
-  result.extend(yahoo_result)
 
   def drop_bublicate(result):
     for i in len(result):
