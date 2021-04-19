@@ -15,7 +15,8 @@ class Google(protoTemplate):
     self.session = self.requests.Session()
     self.url = 'http://www.google.com/search?'
     self.page = 1
-
+    self.country = ['countryCA', 'countryUA']
+    self.lang = ['lang_fr', 'lang_ua']
     self.url_params = {
       'list': {
         'start': 0,
@@ -23,14 +24,16 @@ class Google(protoTemplate):
         'q': '_it_',
         'ie': 'utf-8',
         'oe': 'utf-8',
-        'cr': 'countryCA',
-        'lr': 'lang_fr',
+        'cr': self.country[1],
+        'lr': self.lang[1],
         'client': 'google-csbe',
         'output': 'xml_no_dtd',
         'cx': '00255077836266642015:u-scht7a-8i'
       },
       'skip': [
-        'output'
+        'output',
+        'cr',
+        'lr'
       ]
     }
 
@@ -55,6 +58,7 @@ class Google(protoTemplate):
       headers=self.header
     )
     soup = self.bs(response.text, "html.parser")
+    # print(soup)
     return self.parser(soup)
 
   def parser (self, soup):
@@ -93,6 +97,7 @@ class Google(protoTemplate):
     if not len(self.isolator) == 0:
       print('---- Warning:')
       for item in self.isolator:
+        print(soup)
         print(item)
 
     return self.output
