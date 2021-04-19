@@ -58,7 +58,7 @@ class Google(protoTemplate):
       headers=self.header
     )
     soup = self.bs(response.text, "html.parser")
-    # print(soup)
+    print(soup)
     return self.parser(soup)
 
   def parser (self, soup):
@@ -79,7 +79,7 @@ class Google(protoTemplate):
       # item = searchWrapper.select('cite').text
       result = {
         'url': uri,
-        'text': title,
+        'title': title,
         'description': description,
         'type': {
           'logo': 'http://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
