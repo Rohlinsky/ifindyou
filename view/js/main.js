@@ -82,4 +82,27 @@ function prevPage() {
 function nav(page) {
   $('footer div.navigation span.page').text(page + 1)
 }
-
+function addNavTabs() {
+  const tab_list_text = [
+     {
+       name: "Main",
+       key: "main"
+     }, {
+       name: "Social",
+       key: "social"
+     }
+  ]
+  const tab_list_image = [
+     {
+       name: "Look for image",
+       key: "main"
+     }, {
+       name: "Display image",
+       key: "social"
+     }
+  ]
+  const block_navigation_tab_text = $('.tab.navigation.search.text ul')
+  const block_navigation_tab_image = $('.tab.navigation.search.image ul')
+  tab_list_text.forEach(({ name, key }) => block_navigation_tab_text.append("<li key='" + key + "'>" + name + "</li>"))
+  tab_list_image.forEach(({ name, key }) => block_navigation_tab_image.append("<li key='" + key + "'>" + name + "</li>"))
+}

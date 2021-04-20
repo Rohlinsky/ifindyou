@@ -6,10 +6,31 @@ body .left {
 }
 div.search.box {
   width: calc(100% - 75px);
-  margin: 50px 28px 20px;
+  margin: 20px 28px;
+}
+header center div.tab.navigation {
+  margin: 2rem 2.8rem;
+  margin-bottom: 0;
+}
+header center div.tab.navigation ul {
+  margin-bottom: 0;
+  padding-left: 0;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+}
+header center div.tab.navigation ul li {
+  margin-right: .2rem;
+  padding: .4rem .8rem;
+  color: #fff;
+  list-style: none;
+  border-top-right-radius: .2rem;
+  border-top-left-radius: .2rem;
+  display: inline-block;
+  background-color: #888;
+  cursor: pointer;
 }
 main {
-  min-height: 48rem;
+  min-height: 45rem;
 }
 main div.result.box {
   max-width: 60rem;

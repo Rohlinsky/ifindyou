@@ -5,8 +5,9 @@
     <title>Search Agrigate</title>
     <link rel="stylesheet" type="text/css" href=""/>
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="icon" type="image/png" href="//cdn.icon-icons.com/icons2/2248/PNG/512/spider_icon_137156.png"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="/js/main.js" type="text/javascript"></script>
     <script type="text/javascript">
       let page = 0
@@ -15,6 +16,7 @@
       $(document).ready(() => {
         searchRun()
         keyboard()
+        addNavTabs()
       })
     </script>
   </head>
@@ -22,6 +24,12 @@
     <header>
       <hr/>
       <center>
+        <div class="tab navigation search text">
+          <ul></ul>
+        </div>
+        <div class="tab navigation search image">
+          <ul></ul>
+        </div>
         <div class="search box">
           <input class="form-control left request" type="text" placeholder="Search" aria-label="Search"/>
           <div class="look btn btn-success right">Look It</div>
