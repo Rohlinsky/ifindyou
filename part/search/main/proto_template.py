@@ -15,6 +15,7 @@ class protoTemplate():
     self.url = ''
     self.bs = BeautifulSoup
     self.requests = requests
+    self.link_list = []
     self.page = {
       'list': [],
       'current': 0

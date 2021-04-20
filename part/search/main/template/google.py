@@ -64,6 +64,7 @@ class Google(protoTemplate):
   def parser (self, soup):
     self.output = []
     self.isolator = []
+    self.link_list = []
     # if self.page == 0:
       # main = soup.find('div', {'class': 'main', 'id': 'main'})
       # center_col = main.find('div', {'id': 'center_col'})
@@ -73,6 +74,12 @@ class Google(protoTemplate):
     for wrapper_item in soup.find_all('div', {'class':'g'}):
       item = wrapper_item.div
       uri = item.div.a["href"] if item.div.a and item.div.a.has_attr('href') else ''
+
+      if uri in self.link_list:
+        continue
+      else:
+        self.link_list.append(uri)
+
       title = item.a.h3.text if item.a.h3 else ''
       # print(wrapper_item)
       # print('-----')

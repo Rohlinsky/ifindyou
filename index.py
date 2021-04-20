@@ -23,20 +23,29 @@ def send_css(path):
 @app.route('/look/<string:it>/page/<int:page_number>', methods = ['GET'])
 def look(it, page_number):
   result = []
+  
+  link_list = []
+
   google = Google()
   bing = Bing()
   yandex = Yandex()
   yahoo = Yahoo()
   # duckduckgo = Duckduckgo()
 
+  google.link_list = link_list
   google_result = google.look(it=it, page=page_number)
   result.extend(google_result)
+  link_list = google.link_list
 
+  yahoo.link_list = link_list
   yahoo_result = yahoo.look(it=it, page=page_number)
   result.extend(yahoo_result)
+  link_list = yahoo.link_list
 
+  bing.link_list = link_list
   bing_result = bing.look(it=it, page=page_number)
   result.extend(bing_result)
+  link_list = bing.link_list
 
   # duckduckgo.look(it=it, page=page_number)
   # result.update(duckduckgo.look(it=it, page=page_number))

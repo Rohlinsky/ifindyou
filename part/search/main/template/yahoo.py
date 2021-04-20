@@ -70,6 +70,7 @@ class Yahoo(protoTemplate):
   def parser (self, soup):
     self.output = []
     self.isolator = []
+    self.link_list = []
     # if self.page == 0:
       # main = soup.find('div', {'class': 'main', 'id': 'main'})
       # center_col = main.find('div', {'id': 'center_col'})
@@ -84,6 +85,12 @@ class Yahoo(protoTemplate):
       for wrapper_item in result_list:
         item = wrapper_item.div
         uri = item.div.h3.a["href"] if item.div.h3.a and item.div.h3.a.has_attr('href') else ''
+
+        if uri in self.link_list:
+          continue
+        else:
+          self.link_list.append(uri)
+
         # print(wrapper_item)
         # continue
         title = item.div.h3.a.text if item.div.h3 else ''

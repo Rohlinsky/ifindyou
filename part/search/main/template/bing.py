@@ -64,6 +64,7 @@ class Bing(protoTemplate):
   def parser (self, soup):
     self.output = []
     self.isolator = []
+    self.link_list = []
 
     result_list = soup.find_all('ol', {'id':'b_results'})
     result_list = result_list[0] if len(result_list) > 0 else []
@@ -77,6 +78,12 @@ class Bing(protoTemplate):
       for wrapper_item in result_list:
         item = wrapper_item.div
         uri = item.h2.a["href"] if item.h2 and item.h2.a and item.h2.a.has_attr('href') else ''
+
+        if uri in self.link_list:
+          continue
+        else:
+          self.link_list.append(uri)
+
         title = item.h2.a.text if item.h2 and item.h2.a else ''
 
         description_wrapper = item.parent.select('.b_caption')
