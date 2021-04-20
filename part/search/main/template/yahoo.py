@@ -36,7 +36,7 @@ class Yahoo(protoTemplate):
     }
 
   def add_params(self):
-    print(self.page)
+    print('page: ' + str(self.page))
     if self.page > 0:
       self.url_params['list']['b'] = 11
     elif self.page > 1:
@@ -62,7 +62,7 @@ class Yahoo(protoTemplate):
       self.url.replace('_it_', self.query), 
       headers=self.header
     )
-    print(self.url.replace('_it_', self.query))
+    # print(self.url.replace('_it_', self.query))
     soup = self.bs(response.text, "html.parser")
     # print(soup)
     return self.parser(soup)
@@ -70,7 +70,7 @@ class Yahoo(protoTemplate):
   def parser (self, soup):
     self.output = []
     self.isolator = []
-    self.link_list = []
+
     # if self.page == 0:
       # main = soup.find('div', {'class': 'main', 'id': 'main'})
       # center_col = main.find('div', {'id': 'center_col'})
@@ -85,7 +85,12 @@ class Yahoo(protoTemplate):
       for wrapper_item in result_list:
         item = wrapper_item.div
         uri = item.div.h3.a["href"] if item.div.h3.a and item.div.h3.a.has_attr('href') else ''
-
+        url = 'http' + uri.split('http')[-1].replace('%3a%2f%2f', '://').replace(r'%2f', '/')
+        url = url.split('/RK=')[0]
+        url = url.split('/RS=')[0]
+        # print(url)
+        # print(self.link_list)
+        uri = url
         if uri in self.link_list:
           continue
         else:

@@ -58,13 +58,12 @@ class Google(protoTemplate):
       headers=self.header
     )
     soup = self.bs(response.text, "html.parser")
-    print(soup)
+    # print(soup)
     return self.parser(soup)
 
   def parser (self, soup):
     self.output = []
     self.isolator = []
-    self.link_list = []
     # if self.page == 0:
       # main = soup.find('div', {'class': 'main', 'id': 'main'})
       # center_col = main.find('div', {'id': 'center_col'})

@@ -64,7 +64,6 @@ class Bing(protoTemplate):
   def parser (self, soup):
     self.output = []
     self.isolator = []
-    self.link_list = []
 
     result_list = soup.find_all('ol', {'id':'b_results'})
     result_list = result_list[0] if len(result_list) > 0 else []
