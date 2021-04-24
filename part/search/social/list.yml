@@ -16,6 +16,11 @@ whatsapp.com
 getnumber.com
 
 telegram.com
+  include:
+    # bot accounts search
+    - godeye
+    - mails bypass
+    - ukr phone
 
 vk.com
   by:

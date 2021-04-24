@@ -84,7 +84,7 @@ class Yahoo(protoTemplate):
       result_list = result_list.select('ol > li')
       for wrapper_item in result_list:
         item = wrapper_item.div
-        uri = item.div.h3.a["href"] if item.div.h3.a and item.div.h3.a.has_attr('href') else ''
+        uri = item.div.h3.a["href"] if item.div.h3 and item.div.h3.a and item.div.h3.a.has_attr('href') else ''
         url = 'http' + uri.split('http')[-1].replace('%3a%2f%2f', '://').replace(r'%2f', '/')
         url = url.split('/RK=')[0]
         url = url.split('/RS=')[0]
@@ -119,7 +119,7 @@ class Yahoo(protoTemplate):
         # print(result)
         # continue
 
-        if not item.div.h3.a or not item.div.h3.a.has_attr('href'):
+        if not item.div.h3 or not item.div.h3.a or not item.div.h3.a.has_attr('href'):
           self.isolator.append(item.div)
         else:
           self.output.append(result)

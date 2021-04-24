@@ -23,7 +23,10 @@ def send_css(path):
 @app.route('/look/<string:it>/page/<int:page_number>', methods = ['GET'])
 def look(it, page_number):
   result = []
-  
+
+  # TODO: Add pagination hash link list like
+  # link_list[page][links]
+
   link_list = []
 
   google = Google()
